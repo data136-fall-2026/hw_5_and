@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html><head><title>Login</title></head>
+<body style="text-align:center; font-family:Arial;">
+<h1>Log In</h1>
+{% if form.errors %}
+<ul class="errorlist nonfield">
+{% for error in form.non_field_errors %}
+<li>{{ error }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+<form method="post">
+{% csrf_token %}
+<label>Username: <input type="text" name="username" required></label><br><br>
+<label>Password: <input type="password" name="password" required></label><br><br>
+<input type="submit" value="Log in">
+</form>
+<p><a href="/app/new">Create account</a></p>
+</body>
+</html>
